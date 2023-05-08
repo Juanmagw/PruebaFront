@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: url("assets/img/eclipse-1492818_1920.jpg") no-repeat;
+}
+
+@media only screen and (max-width: 430px) {
+    body{
+        background: url('assets/img/lagoon-nebula-g141df73a2_1280.jpg') no-repeat top center;
+        background-size: 150vh;
+    }
+}
