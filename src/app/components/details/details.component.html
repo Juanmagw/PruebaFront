@@ -1,13 +1,17 @@
+<app-navbar></app-navbar>
 <div class="container">
-  <div class="row">
-    <button>Volver</button>
-  </div>
-  <div class="row">
+  <div class="row element">
     <div class="col">
-      <h2>Fecha</h2>
-      <img src="" />
-      <h2>Titulo</h2>
-      <button>Ver</button>
+      <div class="card">
+        <div class="card-body">
+          <img [src]="image.url" />
+          <br />
+          <p>{{ image.explanation }}</p>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="row button">
+    <button routerLink="/" id="btnVolver">Volver</button>
   </div>
 </div>
