@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
-import { Imagen } from 'src/app/models/Imagen';
-import { ImagenService } from 'src/app/services/imagen.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { map, Subscription } from 'rxjs';
+import { Image } from '../../models/Image';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
-export class DetailsComponent implements OnInit {
-  image: Imagen = {
-    url: '',
-    date: '',
-    title: '',
-    explanation: '',
-  };
-  constructor(private _imageService: ImagenService) {}
+export class DetailsComponent implements OnInit, OnDestroy {
+  loading = true;
 
-  ngOnInit(): void {
-    /*     this._imageService.getImage(date.toLocaleDateString('fr-CA'))
-     */ this._imageService
-      .getImageByDate()
-      .pipe(
-        map((data) => {
-          this.image = data;
-        })
-      )
-      .subscribe();
+  image: Image = {
+    date: '',
+    url: '',
+    title: '',
+  };
+
+  private subs: Subscription = new Subscription();
+
+  constructor(private _imageService: ImageService) {
+    this.subs = _imageService.data$.subscribe((data: Image) => {
+      setTimeout(() => {
+        this.loading = false;
+        this.image = data;
+      }, 1000);
+    });
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }
