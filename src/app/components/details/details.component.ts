@@ -19,13 +19,17 @@ export class DetailsComponent implements OnInit, OnDestroy {
 
   private subs: Subscription = new Subscription();
 
-  constructor(private _imageService: ImageService) {
-    this.subs = _imageService.data$.subscribe((data: Image) => {
-      setTimeout(() => {
-        this.loading = false;
-        this.image = data;
-      }, 1000);
-    });
+  constructor(
+    private _imageService: ImageService,
+  ) {
+    this.subs = _imageService.data$.subscribe(
+      (data: Image) => {
+        setTimeout(() => {
+          this.loading = false;
+          this.image = data;
+        }, 1000);
+      }
+    );
   }
 
   ngOnInit(): void {}

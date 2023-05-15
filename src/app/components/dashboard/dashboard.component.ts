@@ -16,7 +16,10 @@ export class DashboardComponent implements OnInit {
 
   irDetalles$ = fromEvent<PointerEvent>(document, 'click');
 
-  constructor(private router: Router, private _imageService: ImageService) {}
+  constructor(
+    private router: Router,
+    private _imageService: ImageService,
+  ) {}
 
   ngOnInit(): void {
     this.mostrarDatos();
@@ -36,15 +39,15 @@ export class DashboardComponent implements OnInit {
             .pipe(
               map((event: any) => {
                 if (event.target['id'] === 'img') {
-                    from(this.listImages)
-                      .pipe(
-                        map((element) => {
-                          if (event.target['currentSrc'] === element.url) {
-                            this._imageService.setData(element);
-                          }
-                        })
-                      )
-                      .subscribe();
+                  from(this.listImages)
+                    .pipe(
+                      map((element) => {
+                        if (event.target['currentSrc'] === element.url) {
+                          this._imageService.setData(element);
+                        }
+                      })
+                    )
+                    .subscribe();
                 }
               }),
               take(1)

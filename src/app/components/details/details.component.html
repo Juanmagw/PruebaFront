@@ -1,17 +1,19 @@
 <div *ngIf="!loading" class="container">
-  <div class="row element">
-    <div class="col">
-      <div class="card">
-        <div class="card-body">
-          <img [src]="image.url" />
-          <br />
-          <p>{{ image.explanation }}</p>
+  <div class="col">
+    <div class="row element">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <img [src]="image.url" />
+            <br />
+            <p>{{ image.explanation }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row button">
-    <button routerLink="/" id="btnVolver">Volver</button>
+    <div class="row">
+      <button routerLink="/" id="btnVolver">Volver</button>
+    </div>
   </div>
 </div>
 

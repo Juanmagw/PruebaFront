@@ -4,8 +4,16 @@ body {
 }
 
 @media only screen and (max-width: 430px) {
-    body{
-        background: url('assets/img/lagoon-nebula-g141df73a2_1280.jpg') no-repeat top center;
-        background-size: 150vh;
-    }
+  body {
+    background: url("assets/img/lagoon-nebula-g141df73a2_1280.jpg") no-repeat
+      top center;
+    background-size: 400vh;
+  }
+}
+
+@media only screen and (min-height: 900px) {
+  body {
+    background: url("assets/img/eclipse-1492818_1920.jpg") no-repeat top center;
+    background-size: 250vh;
+  }
 }
