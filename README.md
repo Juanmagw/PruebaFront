@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Deploy
 
-This app was builded and deployed in Netlify, on this site: prueba-tecnica-front.netlify.app
+This app was builded and deployed in Netlify, on this site: https://prueba-tecnica-front.netlify.app
